@@ -1,0 +1,47 @@
+<!-- Graphics Example Code.  index.html - The web page document containing the canvas (drawing surface), that launches your javascript files. //-->
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"/> <link rel="icon" href="assets/fav.ico">
+<script> window.tiny_graphics = {};             // Store all our JavaScipt code inside of classes here.
+         window.classes = {}                    
+         </script>          
+                                      <!--  Javascript "include" files.  Any code in them gets executed as part of the page loading: //-->
+<script src="tiny-graphics.js" ></script>
+<script src= "dependencies.js" ></script>
+<script src=   "main-scene.js" ></script>
+<link rel="stylesheet" type="text/css" href="index.css"/></head>
+<body style="background: DarkGray">       <!-- Begin typing your web page here. //-->
+                              <!-- The following code embeds a WebGL canvas panel widget with certain scenes and their controls. //-->
+<div id = "landing">
+<div id = "landingPageText" style="top: 10px; bottom: 20px; margin: auto; position: absolute; left:0px; right:60px; top:0px; bottom:100px;">
+<h4>MOOve It!!</h4><br><br><br>
+<h6>Press IKJL to move forward, backwards, left, and right. </h6><br><br><br>
+<h6>Eat food or pick flowers to grow, and interact with cows for points.</h6><br><br><br>
+<h6>Touch blocks to change textures. Watch out for shoes!</h6><br><br><br>
+<h6>Reach the end to win!</h6><br><br><br>
+<h6>Press c to start</h6>
+</div>
+<div id="landingPageBackground"><img id="loadingPageImage" src="/assets/landing_page.jpg"></div>
+</div>
+
+<div id="main-canvas" class="canvas-widget"></div>
+	<h4 id="status" style="top: 10px; bottom: 20px; margin: auto; position: absolute; left:40px; right:60px; top:30px; bottom:100px;"> Score: 0 </h4>
+	<h4 id="size" style="top: 10px; bottom: 20px; margin: auto; position: absolute; left:40px; right:60px; top:60px; bottom:100px;"> Radius: 1 </h4>
+	<h4 id="health" style="top: 10px; bottom: 20px; margin: auto; position: absolute; left:40px; right:60px; top:90px; bottom:100px;"> Health: 3 </h4>
+	<h4 id="win" style="top: 10px; bottom: 20px; margin: auto; position: absolute; left:260px; right:60px; top:260px; bottom:100px;"> You win! Press r to restart. </h4>
+	
+<script> "use strict"     // ********************* THE ENTRY POINT OF YOUR WHOLE PROGRAM STARTS HERE ********************* 
+                                           // Use this code to embed a widget into any web page.  The widget inclues a 3D WebGL area
+                                           // (an HTML canvas) and various panels of controls.
+  const scenes = [ "Moove_Scene",
+  					    // First, list the names of scenes we will add to our canvas.  These will register 
+                   "Global_Info_Table"       ]; // themselves with this widget's Canvas_Manager so that their code can be called upon
+                                                // every time a draw / keyboard / mouse event happens on the web page.
+  new Canvas_Widget( "main-canvas", scenes );             // Use the Canvas_Widget class to display the WebGL demo.  Pass in
+                                                          // the name of the HTML element we are to replace with the widget.
+</script>
+                             <!-- The following code embeds a code navigator widget with links to classes. //-->
+<div id="main-code" class="code-widget"></div>
+<script> "use strict"
+  new Code_Widget( "main-code", "Moove_Scene" );
+</script>
+
+</body></html>
